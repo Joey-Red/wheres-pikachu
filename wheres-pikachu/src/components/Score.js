@@ -2,7 +2,7 @@ import React from 'react'
 
 function Score() {
   return (
-    <div>Score: </div>
+    <div className='score-background'>Score: </div>
   )
 }
 

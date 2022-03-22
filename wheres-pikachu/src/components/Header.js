@@ -2,7 +2,7 @@ import React from 'react'
 
 function Header() {
   return (
-    <div>Where's Pikachu?!</div>
+    <div className='header-background'>Where's Pikachu?!</div>
   )
 }
 

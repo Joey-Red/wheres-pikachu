@@ -2,7 +2,7 @@ import React from 'react'
 
 function Objectives() {
   return (
-    <div>
+    <div className='obj-background'>
       <ul>
         <p>Objectives:</p>
         <li>Find X</li>

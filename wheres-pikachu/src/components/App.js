@@ -3,11 +3,14 @@ import Objectives from "./Objectives";
 import Header from "./Header";
 import Modal from "./Modal";
 function App() {
+  
   return (
     <div className="App">
-      <Score />
-      <Header />
-      <Objectives />
+      <div className="header-bar">
+        <Score />
+        <Header />
+        <Objectives />
+      </div>
       <Modal />
     </div>
   );

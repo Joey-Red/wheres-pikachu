@@ -2,7 +2,32 @@ html,
 body {
   margin: 0;
   padding: 0;
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-size: 1.2rem;
+}
+.header-bar {
+  background-color: rgba(241, 217, 0, 0.5);
+
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-shadow: 2px 2px black;
+}
+.modal-container {
+  border: solid black 4px;
+}
+.modal {
+  display: flex;
 }
 img {
-  width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+.header-background,
+.score-background,
+.obj-background {
+  padding: 4px;
+  margin-top: 2%;
 }
