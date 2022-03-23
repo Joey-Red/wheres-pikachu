@@ -21,9 +21,11 @@ body {
   display: flex;
 }
 img {
-  width: 100%;
+  max-width: 1000px;
+  min-width: 1000px;
   margin: 0 auto;
   display: block;
+  /* mess w width, but before you write any finder functions DEFINITELY have this locked down. */
 }
 .header-background,
 .score-background,
