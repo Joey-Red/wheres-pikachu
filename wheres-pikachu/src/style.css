@@ -44,4 +44,7 @@ img {
 }
 .scanBox {
   display: none;
+  background: none;
+  border: solid green 8px;
+  border-radius: 12px;
 }
