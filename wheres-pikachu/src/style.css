@@ -42,13 +42,6 @@ img {
 .list-of-objectives li:hover {
   color: yellow;
 }
-/* .scanBox {
-  background-color: red;
-  position: absolute;
-  margin-left: -34px;
-  margin-top: -34px;
-  height: 17px;
-  width: 17px;
-  padding: 34px;
-  z-index: 999;
-} */
+.scanBox {
+  display: none;
+}
