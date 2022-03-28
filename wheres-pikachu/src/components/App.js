@@ -4,11 +4,15 @@ import Header from "./Header";
 import Modal from "./Modal";
 import '../style.css'
 function App() {
-  const moveCursor = (e)=> {
+  let headerBar = document.querySelector('.header-bar');
+  const moveCursor = (e) => {
+  let img = document.querySelector('#wwPic');
+  var bounds = img.getBoundingClientRect();
   let scanBox = document.querySelector('.scanBox')
-  const mouseY = e.clientY;
-  const mouseX = e.clientX;
+  let mouseX = e.pageX - 35;
+  let mouseY = e.pageY - 35 -  bounds.top - window.scrollY + 120;
   scanBox.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+  // console.log('sbCords: ' + mouseX, mouseY)
 }
   return (
     <div className="App" onMouseMove={moveCursor}>

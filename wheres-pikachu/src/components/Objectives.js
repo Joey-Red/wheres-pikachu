@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+// import Modal from './Modal';
 
-function Objectives() {
+function Objectives(props) {
   const [isHidden, setHidden] = useState("true")
   let showObjs = () => {
     setHidden(!isHidden)
@@ -14,14 +15,12 @@ function Objectives() {
         </div>
       <div className={isHidden ? "hiddenObjs" : null} id="objList">
         <ul className='list-of-objectives'>
+            {/* <li>{props.pokemon[0]}</li>
+            <li>{props.pokemon[1]}</li>
+            <li>{props.pokemon[2]}</li> */}
             <li>Pikachu</li>
-            <li>Ho-Oh</li>
+            <li>Celebi</li>
             <li>Flareon</li>
-            <li>Pinsir</li>
-            <li>Kyogre</li>
-            <li>Haunter</li>
-            <li>Tyranitar</li>
-            <li>Seviper</li>
         </ul>
       </div>
     </div>
