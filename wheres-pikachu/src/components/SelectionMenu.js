@@ -13,12 +13,12 @@ function SelectionMenu(props) {
       }}
     >
       <div className='subMenu' id="subMenuID" >
-      <p>Whos That Pokemon?</p>
-      <div className="buttonList">
-        <button onClick={communicate.bind(cordX, cordY, pokeOne)}>{pokeOne}</button>
-        <button onClick={communicate.bind(cordX, cordY, pokeTwo)}>{pokeTwo}</button>
-        <button onClick={communicate.bind(cordX, cordY, pokeThree)}>{pokeThree}</button>
-      </div>
+        <p>Whos That Pokemon?</p>
+        <div className="buttonList">
+          <button onClick={() =>communicate(cordX, cordY, pokeOne)}>{pokeOne}</button>
+          <button onClick={() =>communicate(cordX, cordY, pokeTwo)}>{pokeTwo}</button>
+          <button onClick={() =>communicate(cordX, cordY, pokeThree)}>{pokeThree}</button>
+        </div>
       </div>
     </div>
   )
