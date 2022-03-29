@@ -15,12 +15,9 @@ function Objectives(props) {
         </div>
       <div className={isHidden ? "hiddenObjs" : null} id="objList">
         <ul className='list-of-objectives'>
-            {/* <li>{props.pokemon[0]}</li>
-            <li>{props.pokemon[1]}</li>
-            <li>{props.pokemon[2]}</li> */}
-            <li>Pikachu</li>
-            <li>Celebi</li>
-            <li>Flareon</li>
+            <li>{props.pokemon.pokeOne}</li>
+            <li>{props.pokemon.pokeTwo}</li>
+            <li>{props.pokemon.pokeThree}</li>
         </ul>
       </div>
     </div>

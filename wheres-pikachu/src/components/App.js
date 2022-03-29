@@ -1,13 +1,18 @@
 import Score from "./Score";
+import React, { useState } from "react";
 import Objectives from "./Objectives";
 import Header from "./Header";
 import Modal from "./Modal";
 import '../style.css'
 function App() {
-  let headerBar = document.querySelector('.header-bar');
+  let [pokemon, setPokemon] = useState({
+    pokeOne: ["Pikachu"], 
+    pokeTwo: ["Celebi"],
+    pokeThree: ["Chansey"]
+  })
   const moveCursor = (e) => {
   let img = document.querySelector('#wwPic');
-  var bounds = img.getBoundingClientRect();
+  let bounds = img.getBoundingClientRect();
   let scanBox = document.querySelector('.scanBox')
   let mouseX = e.pageX - 35;
   let mouseY = e.pageY - 35 -  bounds.top - window.scrollY + 120;
@@ -20,10 +25,10 @@ function App() {
       <div className="header-bar">
         <Score />
         <Header />
-        <Objectives />
+        <Objectives pokemon={pokemon}/>
       </div>
       <div className="modal-obj">
-        <Modal/>
+        <Modal pokemon={pokemon}/>
       </div>
     </div>
   );

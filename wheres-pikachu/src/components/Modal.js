@@ -2,11 +2,10 @@ import React, { useState, useRef } from 'react'
 import PokemonPic from '../img/PokemonPic.png'
 import '../style.css';
 import SelectionMenu from './SelectionMenu';
-function Modal() {
+function Modal(props) {
   let [cordX, setCordX] = useState([0]);
   let [cordY, setCordY] = useState([0]);
   // let [checkCords, setCheckCords] = useState([0,0]);
-  let [pokemon, setPokemon] = (['Pikachu', 'Celebi', 'Flareon']);
   let [showMenu, setShowMenu] = useState(false);
   let imgRef = useRef()
   let handleMouseClick = (e) => {
@@ -18,23 +17,16 @@ function Modal() {
     }
     setShowMenu(!showMenu);
   }
-  let handleMouseMove = (e) => {
-    // const width = imgRef.current.offsetWidth;
-    // const height = imgRef.current.offsetHeight;
-    // let canvas = document.querySelector('#wwPic');
-    // let rect = canvas.getBoundingClientRect();
-    // setCords([(e.clientX - rect.left)/width, (e.clientY - rect.top)/height]);
-    // // console.log("Height " + height/cords[0], "Width " + width/cords[1])
-  }
+  
   return (
   <div>
-    <div className='modal-container' onMouseMove={handleMouseMove}>
+    <div className='modal-container'>
       <div className="modal" ref={imgRef}>
         <img src={PokemonPic} id="wwPic" alt="Pokemon" onClick={handleMouseClick}/>
       </div>
     </div>
     <SelectionMenu
-    pokemon={pokemon}
+    pokemon={props.pokemon}
     cordY={cordY}
     cordX={cordX}
     showMenu={showMenu}
@@ -45,4 +37,12 @@ function Modal() {
 
 export default Modal
 
-
+//May reuse some of this
+// let handleMouseMove = (e) => {
+//     const width = imgRef.current.offsetWidth;
+//     const height = imgRef.current.offsetHeight;
+//     let canvas = document.querySelector('#wwPic');
+//     let rect = canvas.getBoundingClientRect();
+//     setCords([(e.clientX - rect.left)/width, (e.clientY - rect.top)/height]);
+//     // console.log("Height " + height/cords[0], "Width " + width/cords[1])
+//   }
