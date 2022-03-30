@@ -40,23 +40,29 @@ img {
   margin-top: 2%;
 }
 
-.small-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
 .hiddenObjs {
   display: none;
   background: none;
 }
-.showButton {
+.showButton,
+.levelButton {
   border-radius: 4px;
   background-color: yellow;
   border: none;
   width: 4rem;
-  margin-left: 4%;
   z-index: 999;
   height: 2rem;
-  align-self: center;
+}
+.levelButton {
+  margin-top: 2%;
+}
+.closeObjectives {
+  border-radius: 4px;
+  background-color: yellow;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 #objList {
   position: absolute;
@@ -66,16 +72,19 @@ img {
   z-index: 3;
 }
 .list-of-objectives {
+  text-align: center;
   display: flex;
   margin: 0 auto;
-  flex-direction: column;
   list-style: none;
-  padding-left: 0;
+  height: 40vh;
+  width: 40vw;
   background: rgba(0, 0, 0, 0.6);
   padding: 30px;
-  width: 30vw;
   align-items: center;
   border-radius: 12px;
+  border: solid yellow 2px;
+  cursor: default;
+  z-index: 999;
 }
 .list-of-objectives li:hover {
   color: yellow;
@@ -88,7 +97,7 @@ img {
   height: 20px;
   width: 20px;
   padding: 20px;
-  z-index: 9;
+  z-index: 1;
   justify-content: center;
   align-items: center;
   margin: 0 auto;

@@ -5,19 +5,21 @@ import SelectionMenu from './SelectionMenu';
 function Modal(props) {
   let [cordX, setCordX] = useState([0]);
   let [cordY, setCordY] = useState([0]);
-  // let [checkCords, setCheckCords] = useState([0,0]);
+  let [width, setWidth] = useState([0]);
+  let [height, setHeight] = useState([0]);
   let [showMenu, setShowMenu] = useState(false);
   let imgRef = useRef()
   let handleMouseClick = (e) => {
-    if (imgRef.current.offsetWidth - e.pageX) {
+    setWidth(imgRef.current.offsetWidth)
+    setHeight(imgRef.current.offsetHeight)
+    if (width - e.pageX) {
       setCordX(e.pageX - 35);
     }
-    if (imgRef.current.offsetHeight - e.pageY) {
+    if (height - e.pageY) {
       setCordY(e.pageY - 35);
     }
     setShowMenu(!showMenu);
   }
-  
   return (
   <div>
     <div className='modal-container'>
@@ -30,6 +32,8 @@ function Modal(props) {
     cordY={cordY}
     cordX={cordX}
     showMenu={showMenu}
+    height={height}
+    width={width}
     />
   </div>
   )
