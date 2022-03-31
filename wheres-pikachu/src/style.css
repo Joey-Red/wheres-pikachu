@@ -51,6 +51,7 @@ img {
   border: none;
   width: 4rem;
   z-index: 999;
+  max-height: 2rem;
   height: 2rem;
 }
 .levelButton {
@@ -78,7 +79,7 @@ img {
   margin: 0 auto;
   list-style: none;
   height: 40vh;
-  width: 40vw;
+  width: 50vw;
   background: rgba(0, 0, 0, 0.6);
   padding: 30px;
   align-items: center;
@@ -86,6 +87,31 @@ img {
   border: solid yellow 2px;
   cursor: default;
   z-index: 999;
+}
+
+@media only screen and (max-width: 800px) {
+  .list-of-objectives {
+    max-height: 20vh;
+    font-size: 0.8rem;
+  }
+  .list-of-objectives li {
+    align-items: center;
+    max-width: 50px;
+    margin: 0 auto;
+  }
+  .subMenu {
+    max-width: 100px;
+    max-height: 100px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .subMenu button {
+    font-size: 0.6rem;
+  }
+  .subMenu p {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
 }
 .list-of-objectives li:hover {
   color: yellow;
