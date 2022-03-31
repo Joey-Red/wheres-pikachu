@@ -34,7 +34,12 @@ function App() {
     })
     }
   }, [level]);
+
   let levelChange = () => {
+    let overlay = document.querySelector('#objList');
+    if (overlay.classList.contains('hiddenObjs')){
+      overlay.classList.toggle('hiddenObjs');
+    }
     if (level === 3){
       setLevel(1)
     } else {
