@@ -10,16 +10,19 @@ function Modal(props) {
   let [showMenu, setShowMenu] = useState(false);
   let imgRef = useRef()
   let handleMouseClick = (e) => {
+    let img = document.querySelector('#wwPic');
+    let bounds = img.getBoundingClientRect();
     setWidth(imgRef.current.offsetWidth)
     setHeight(imgRef.current.offsetHeight)
     if (width - e.pageX) {
       setCordX(e.pageX - 35);
     }
     if (height - e.pageY) {
-      setCordY(e.pageY - 35);
+      setCordY(e.pageY - 35 - window.scrollY - bounds.top + 120);
     }
     setShowMenu(!showMenu);
   }
+  // console.log(cordX, cordY)
   return (
   <div>
     <div className='modal-container'>

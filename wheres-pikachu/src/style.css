@@ -32,6 +32,7 @@ img {
   margin: 0 auto;
   display: block;
   border-radius: 12px;
+  /* min-width: 846px; */
 }
 .header-background,
 .score-background,

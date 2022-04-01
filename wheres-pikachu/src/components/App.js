@@ -51,7 +51,7 @@ function App() {
   let img = document.querySelector('#wwPic');
   let bounds = img.getBoundingClientRect();
   let mouseX = e.pageX - 35;
-  let mouseY = e.pageY - 35 -  bounds.top - window.scrollY + 120;
+  let mouseY = e.pageY - 35 - bounds.top - window.scrollY + 120;
   scanBox.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
   }
   return (
