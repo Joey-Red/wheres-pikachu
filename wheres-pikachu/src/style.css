@@ -6,6 +6,7 @@ body {
   background-color: #648381;
   font-size: 1.2rem;
   cursor: crosshair;
+  min-width: 846px;
 }
 .header-bar {
   height: 120px;
@@ -32,7 +33,6 @@ img {
   margin: 0 auto;
   display: block;
   border-radius: 12px;
-  /* min-width: 846px; */
 }
 .header-background,
 .score-background,
@@ -90,7 +90,7 @@ img {
   z-index: 999;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 846px) {
   .list-of-objectives {
     max-height: 20vh;
     font-size: 0.8rem;
@@ -110,6 +110,8 @@ img {
     font-size: 0.6rem;
   }
   .subMenu p {
+    padding-top: 0;
+    margin-top: 0;
     margin-bottom: 0;
     padding-bottom: 0;
   }
