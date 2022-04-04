@@ -5,8 +5,6 @@ body {
   font-family: "Ubuntu Condensed", sans-serif;
   background-color: #648381;
   font-size: 1.2rem;
-  cursor: crosshair;
-  min-width: 846px;
 }
 .header-bar {
   height: 120px;
@@ -121,7 +119,7 @@ img {
 }
 .scanBox {
   position: absolute;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
   border: dashed yellow 4px;
   border-radius: 50%;
   height: 20px;
@@ -153,4 +151,10 @@ img {
   border: none;
   border-radius: 6px;
   background: yellow;
+}
+.foundPokes {
+  display: none;
+}
+#foundPokesStyles {
+  background-color: red;
 }

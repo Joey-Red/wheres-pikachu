@@ -1,43 +1,56 @@
 //send cords to firebase
-let communicate = (x, y, pokemon, height, width) => {
+// import React, { useState } from 'react';
+import failure from './failure';
+import success from './success';
+let Communicate = (localX, localY, pokemon) => {
   let canvas = document.querySelector('#wwPic');
   let rect = canvas.getBoundingClientRect();
-  //Gonna get rid of rect.left bc chansey is a punk
-  // let mutatedX = (((x - rect.left) / width) * 100).toFixed(4);
-  let mutatedX = ((x / width) * 100).toFixed(4);
-  let mutatedY = ((y / height) * 100).toFixed(4);
-  // let mutatedY = ((y  - rect.top) / height).toFixed(4);
-  // console.log(['X: ' + x, 'Y: ' + y, pokemon]);
-  console.log([mutatedX, mutatedY, pokemon]);
+  let mutatedX = (((localX / rect.width) * 100)).toFixed(2);
+  let mutatedY = (((localY / rect.height) * 100)).toFixed(2);
+  //Set One
   if (pokemon === 'Pikachu' &&
-  mutatedX >= 0.8 && mutatedX <= 10 && 
-  mutatedY >= 88 && mutatedY <= 95){
-    console.log(`FOUND! ${pokemon}`)
+  mutatedX >= 5 && mutatedX <= 8 && 
+  mutatedY >= 80 && mutatedY <= 88){
+    success(pokemon);
   } else if (pokemon === 'Celebi' &&
-  mutatedX >= 22 && mutatedX <= 34 && 
-  mutatedY >= 45 && mutatedY <= 60){
-    console.log(`FOUND! ${pokemon}`)
+  mutatedX >= 26 && mutatedX <= 30 && 
+  mutatedY >= 38 && mutatedY <= 44){
+    success(pokemon);
   } else if (pokemon === 'Chansey' &&
-  mutatedX >= 71 && mutatedX <= 110 && 
-  mutatedY >= 47  && mutatedY <= 64){
-    console.log(`FOUND! ${pokemon}`)
+  mutatedX >= 76 && mutatedX <= 81 && 
+  mutatedY >= 40  && mutatedY <= 48){
+    success(pokemon);
+  }  //Set Two
+  else if (pokemon === 'Ditto' &&
+  mutatedX >= 0.5 && mutatedX <= 6 && 
+  mutatedY >= 59  && mutatedY <= 62){
+    success(pokemon);
+  } else if (pokemon === 'Metapod' &&
+  mutatedX >= 0.5 && mutatedX <= 3 && 
+  mutatedY >= 60  && mutatedY <= 64){
+    success(pokemon);
+  } else if (pokemon === 'Charmeleon' &&
+  mutatedX >= 84 && mutatedX <= 87 && 
+  mutatedY >= 46  && mutatedY <= 52.5){
+    success(pokemon);
+  } //Set Three
+  else if (pokemon === 'Sableye' &&
+  mutatedX >= 12 && mutatedX <= 14.5 && 
+  mutatedY >= 61.5  && mutatedY <= 66){
+    success(pokemon);
+  } else if (pokemon === 'Ledyba' &&
+  mutatedX >= 14.5 && mutatedX <= 17.5 && 
+  mutatedY >= 0.75  && mutatedY <= 5.5){
+    success(pokemon);
+  } else if (pokemon === 'Jumpluff' &&
+  mutatedX >= 50 && mutatedX <= 53 && 
+  mutatedY >= 85  && mutatedY <= 89){
+    success(pokemon);
   } else {
-    console.log(`${pokemon} was not found here.`)
-    return
+    failure()
   }
+  return (
+    <div>Hi</div>
+  )
 }
-
-export default communicate
-// const getCoords = (e) => {
-
-//   e = (e||window.event);
-  
-//   let absoluteCoords = {
-//     x: e.pageX - e.target.getBoundingClientRect().left,
-//     y: e.pageY - e.target.getBoundingClientRect().top
-//   }
-  
-//   return {
-//     x: absoluteCoords.x / e.target.clientWidth * e.target.naturalWidth,
-//     y: absoluteCoords.y / e.target.clientHeight * e.target.naturalHeight
-//   };
+export default Communicate

@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 import Objectives from "./Objectives";
 import Header from "./Header";
 import Modal from "./Modal";
-import '../style.css'
+import CapturedMons from "./CapturedMons";
+import '../style.css';
 function App() {
   let [level, setLevel] = useState(1)
   let [pokemon, setPokemon] = useState({
@@ -11,6 +12,7 @@ function App() {
     pokeTwo: "Celebi",
     pokeThree: "Chansey"
   });
+  
   useEffect(() => {
     if (level === 1) {
       setPokemon({
@@ -65,6 +67,10 @@ function App() {
       </div>
       <div className="modal-obj">
         <Modal pokemon={pokemon}/>
+      </div>
+      <div className="captured">
+        <div>Captured</div>
+        <CapturedMons/>
       </div>
     </div>
   );

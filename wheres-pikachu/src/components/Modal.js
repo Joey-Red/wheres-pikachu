@@ -1,12 +1,12 @@
 import React, { useState, useRef } from 'react'
-import PokemonPic from '../img/PokemonPic.png'
+import PokemonPic from './img/PokemonPic.png'
 import '../style.css';
 import SelectionMenu from './SelectionMenu';
 function Modal(props) {
   let [cordX, setCordX] = useState([0]);
   let [cordY, setCordY] = useState([0]);
-  let [width, setWidth] = useState([0]);
-  let [height, setHeight] = useState([0]);
+  let [localX, setLocalX] = useState([0]);
+  let [localY, setLocalY] = useState([0]);
   let [showMenu, setShowMenu] = useState(false);
   let imgRef = useRef()
   let timedClose = () => {
@@ -17,18 +17,17 @@ function Modal(props) {
     let bounds = img.getBoundingClientRect();
     let menu = document.querySelector('.selectMenu');
     menu.style.visibility="visible";
-    setWidth(imgRef.current.offsetWidth)
-    setHeight(imgRef.current.offsetHeight)
-    if (width - e.pageX) {
-      setCordX(e.pageX - 35 - window.scrollX);
-    }
-    if (height - e.pageY) {
-      setCordY(e.pageY - 35 - window.scrollY - bounds.top + 120);
-    }
+    let pos_x = e.pageX;
+    let pos_y = e.pageY;
+    let viewportX = e.clientX;
+    let viewportY = e.clientY;
+    setLocalX(viewportX - bounds.left);
+    setLocalY(viewportY - bounds.top);
+    setCordX(pos_x);
+    setCordY(pos_y);
     setShowMenu(!showMenu);
     setTimeout(timedClose, 10000)
   }
-  // console.log(cordX, cordY)
   return (
   <div>
     <div className='modal-container'>
@@ -41,21 +40,11 @@ function Modal(props) {
     cordY={cordY}
     cordX={cordX}
     showMenu={showMenu}
-    height={height}
-    width={width}
+    localX={localX}
+    localY={localY}
     />
   </div>
   )
 }
 
 export default Modal
-
-//May reuse some of this
-// let handleMouseMove = (e) => {
-//     const width = imgRef.current.offsetWidth;
-//     const height = imgRef.current.offsetHeight;
-//     let canvas = document.querySelector('#wwPic');
-//     let rect = canvas.getBoundingClientRect();
-//     setCords([(e.clientX - rect.left)/width, (e.clientY - rect.top)/height]);
-//     // console.log("Height " + height/cords[0], "Width " + width/cords[1])
-//   }

@@ -35,9 +35,9 @@ function Objectives(props) {
           </button>
       <div className="hiddenObjs" id="objList">
         <ul className='list-of-objectives'>
-            <li><img src={picOne} alt="" />{pokeOne}</li>
-            <li><img src={picTwo} alt="" />{pokeTwo}</li>
-            <li><img src={picThree} alt="" />{pokeThree}</li>
+            <li id="objOne"><img src={picOne} alt="" />{pokeOne}</li>
+            <li id="objTwo"><img src={picTwo} alt="" />{pokeTwo}</li>
+            <li id="objThree"><img src={picThree} alt="" />{pokeThree}</li>
             <button className='closeObjectives' onClick={showObjs}>Close</button>
         </ul>
       </div>
