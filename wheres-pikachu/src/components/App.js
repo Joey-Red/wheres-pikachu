@@ -70,8 +70,7 @@ function App() {
       </div>
       <div className="captured">
         <div>Captured</div>
-        {/* <CapturedComponent/> */}
-        <CapturedMons />
+        {/* <CapturedMons /> */}
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import communicate from "./Communicate";
+import communicate from "./communicate";
 function SelectionMenu(props) {
   const {cordX, cordY, localX, localY} = props;
   const {pokeOne, pokeTwo, pokeThree} = props.pokemon;

@@ -1,8 +1,7 @@
 //send cords to firebase
 import failure from './failure';
 import Success from './Success';
-import React, { useState } from 'react';
-let Communicate = (localX, localY, pokemon) => {
+let communicate = (localX, localY, pokemon) => {
   // let [foundPokes, setFoundPokes] = useState([])
   let canvas = document.querySelector('#wwPic');
   let rect = canvas.getBoundingClientRect();
@@ -50,8 +49,5 @@ let Communicate = (localX, localY, pokemon) => {
   } else {
     failure()
   }
-  return (
-    <div>Hi</div>
-  )
 }
-export default Communicate
+export default communicate

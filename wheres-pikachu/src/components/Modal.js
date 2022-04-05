@@ -2,12 +2,14 @@ import React, { useState, useRef } from 'react'
 import PokemonPic from './img/PokemonPic.png'
 import '../style.css';
 import SelectionMenu from './SelectionMenu';
+import CapturedMons from './CapturedMons';
 function Modal(props) {
   let [cordX, setCordX] = useState([0]);
   let [cordY, setCordY] = useState([0]);
   let [localX, setLocalX] = useState([0]);
   let [localY, setLocalY] = useState([0]);
   let [showMenu, setShowMenu] = useState(false);
+  let [caughtMons, setCaughtMons] = ([])
   let imgRef = useRef()
   let timedClose = () => {
       setShowMenu(false)
@@ -43,6 +45,7 @@ function Modal(props) {
     localX={localX}
     localY={localY}
     />
+    <CapturedMons caughtMons={caughtMons}/>
   </div>
   )
 }
