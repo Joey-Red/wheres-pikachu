@@ -1,6 +1,8 @@
 import pokeball from './img/pokeball.png';
-import CapturedMons from './CapturedMons'
-let success = (props) => {
+import CapturedMons from './CapturedMons';
+import React, { useState } from 'react';
+let Success = (props) => {
+  // let [pokes, setPokes] = useState([])
   let scanBox = document.querySelector('.scanBox');
   console.log(props);
   scanBox.style.backgroundImage=`url(${pokeball})`;
@@ -10,12 +12,9 @@ let success = (props) => {
   scanBox.style.background="rgba(0, 0, 0, 0.3)";
   }
   setTimeout(defCursor, 3000);
-  CapturedMons(props);
   return (
-    <div>
-      <p>TEST</p>
-    </div>
+    <CapturedMons pokemon={props}/>
   )
 }
 
-export default success
+export default Success

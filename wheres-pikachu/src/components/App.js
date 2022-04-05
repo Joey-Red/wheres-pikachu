@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import Objectives from "./Objectives";
 import Header from "./Header";
 import Modal from "./Modal";
-import CapturedMons from "./CapturedMons";
 import '../style.css';
+import CapturedMons from "./CapturedMons";
 function App() {
   let [level, setLevel] = useState(1)
   let [pokemon, setPokemon] = useState({
@@ -70,7 +70,8 @@ function App() {
       </div>
       <div className="captured">
         <div>Captured</div>
-        <CapturedMons/>
+        {/* <CapturedComponent/> */}
+        <CapturedMons />
       </div>
     </div>
   );

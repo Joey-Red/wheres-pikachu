@@ -1,11 +1,22 @@
-import React from 'react'
-import CapturedComponent from './CapturedComponent';
+import React, { useEffect } from 'react';
 function CapturedMons(props) {
-  let { pokemon } = props
-  
+  useEffect(() => {
+  }, [props])
+  if (props = {}){
+    return null
+  } else {
+  let pokemon = props.pokemon;
+  // useEffect(() => {
+  // console.log(props)
+  // }, [pokemon]);
+  let pokeList = pokemon.map((pokes) => 
+  <li>{pokes}</li>
+  );
   return (
-    <CapturedComponent pokemon={pokemon}/>
+    <>
+      <ul>{pokeList}</ul>
+    </>
   )
+  }
 }
-
-export default CapturedMons
+export default CapturedMons;
