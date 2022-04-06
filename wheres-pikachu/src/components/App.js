@@ -5,9 +5,17 @@ import Header from "./Header";
 import Modal from "./Modal";
 import '../style.css';
 import CapturedMons from "./CapturedMons";
-import Success from "./Success";
+import success from "./success";
 import failure from './failure';
-import SelectionMenu from './SelectionMenu';
+import Celebi from '../pokes/celebi.png';
+import Chansey from '../pokes/chansey.png';
+import Charmeleon from '../pokes/charmeleon.png';
+import Ditto from '../pokes/ditto.png';
+import Jumpluff from '../pokes/jumpluff.png';
+import Ledyba from '../pokes/ledyba.png';
+import Metapod from '../pokes/metapod.png';
+import Pikachu from '../pokes/pikachu.png';
+import Sableye from '../pokes/sableye.png';
 
 function App() {
   let [cordX, setCordX] = useState([0]);
@@ -15,12 +23,44 @@ function App() {
   let [localX, setLocalX] = useState([0]);
   let [localY, setLocalY] = useState([0]);
   let [level, setLevel] = useState(1);
-  let [capturedMons, setCapturedMons] = useState(['HootHoot', 'Chimchar'])
+  let [showMenu, setShowMenu] = useState(false);
+  let [capturedMons, setCapturedMons] = useState([])
+  function SelectionMenu(props) {
+  const {cordX, cordY, localX, localY} = props;
+  const {pokeOne, pokeTwo, pokeThree} = props.pokemon;
+  const {height, width, showMenu} = props;
+  let closeMenu = () => {
+    let buttonMenu = document.querySelector('#subMenuID')
+    buttonMenu.style.visibility="hidden";
+  }
+  return (
+    <div className="selectMenu"
+    onClick={closeMenu}
+    hidden={showMenu ? false : true}
+    style={{
+        position: "absolute",
+        top: `${cordY}px`,
+        left: `${cordX}px`,
+      }}
+    >
+      <div className='subMenu' id="subMenuID" >
+        <p>Whos That Pokemon?</p>
+        <div className="buttonList">
+          <button onClick={() => communicate(localX, localY, pokeOne, height, width)}>{pokeOne}</button>
+          <button onClick={() => communicate(localX, localY, pokeTwo, height, width)}>{pokeTwo}</button>
+          <button onClick={() =>
+            communicate(localX, localY, pokeThree, height, width)}>{pokeThree}</button>
+        </div>
+      </div>
+    </div>
+  )
+}
   let [pokemon, setPokemon] = useState({
     pokeOne: "Pikachu", 
     pokeTwo: "Celebi",
     pokeThree: "Chansey"
   });
+  let menu = document.querySelector('.selectMenu');
   let handleMouseClick = (e) => {
     let img = document.querySelector('#wwPic');
     let bounds = img.getBoundingClientRect();
@@ -32,10 +72,12 @@ function App() {
     setLocalY(viewportY - bounds.top);
     setCordX(pos_x);
     setCordY(pos_y);
+    menu.style.visibility="visible";
+    setTimeout(timedClose, 10000);
+    setShowMenu(!showMenu);
   }
   
   let communicate = (localX, localY, pokemon) => {
-  // let [foundPokes, setFoundPokes] = useState([])
   let canvas = document.querySelector('#wwPic');
   let rect = canvas.getBoundingClientRect();
   let mutatedX = (((localX / rect.width) * 100)).toFixed(2);
@@ -45,45 +87,58 @@ function App() {
   if (pokemon === 'Pikachu' &&
   mutatedX >= 5 && mutatedX <= 8 && 
   mutatedY >= 80 && mutatedY <= 88){
-    Success(pokemon);
+    success(pokemon);
+    setCapturedMons(capturedMons + pokemon);
   } else if (pokemon === 'Celebi' &&
   mutatedX >= 26 && mutatedX <= 30 && 
   mutatedY >= 38 && mutatedY <= 44){
-    Success(pokemon);
+    success(pokemon);
+    setCapturedMons(capturedMons + pokemon);
   } else if (pokemon === 'Chansey' &&
   mutatedX >= 76 && mutatedX <= 81 && 
   mutatedY >= 40  && mutatedY <= 48){
-    Success(pokemon);
+    success(pokemon);
+    setCapturedMons(capturedMons + pokemon);
   }  //Set Two
   else if (pokemon === 'Ditto' &&
   mutatedX >= 0.5 && mutatedX <= 6 && 
   mutatedY >= 59  && mutatedY <= 62){
-    Success(pokemon);
+    success(pokemon);
+    setCapturedMons(capturedMons + pokemon);
   } else if (pokemon === 'Metapod' &&
   mutatedX >= 0.5 && mutatedX <= 3 && 
   mutatedY >= 60  && mutatedY <= 64){
-    Success(pokemon);
+    success(pokemon);
+    setCapturedMons(capturedMons + pokemon);
   } else if (pokemon === 'Charmeleon' &&
   mutatedX >= 84 && mutatedX <= 87 && 
   mutatedY >= 46  && mutatedY <= 52.5){
-    Success(pokemon);
+    success(pokemon);
+    setCapturedMons(capturedMons + pokemon);
   } //Set Three
   else if (pokemon === 'Sableye' &&
   mutatedX >= 12 && mutatedX <= 14.5 && 
   mutatedY >= 61.5  && mutatedY <= 66){
-    Success(pokemon);
+    success(pokemon);
+    setCapturedMons(capturedMons + pokemon);
   } else if (pokemon === 'Ledyba' &&
   mutatedX >= 14.5 && mutatedX <= 17.5 && 
   mutatedY >= 0.75  && mutatedY <= 5.5){
-    Success(pokemon);
+    success(pokemon);
+    setCapturedMons(capturedMons + pokemon);
   } else if (pokemon === 'Jumpluff' &&
   mutatedX >= 50 && mutatedX <= 53 && 
   mutatedY >= 85  && mutatedY <= 89){
-    Success(pokemon);
+    success(pokemon);
+    setCapturedMons(capturedMons + pokemon);
   } else {
     failure()
   }
 }
+//End communicate func
+  let timedClose = () => {
+      setShowMenu(false)
+  }
   useEffect(() => {
     if (level === 1) {
       setPokemon({
@@ -129,26 +184,33 @@ function App() {
   }
   return (
     <div className="App" onMouseMove={moveCursor}>
+      <SelectionMenu
+    pokemon={pokemon}
+    localX={localX}
+    localY={localY}
+    cordX={cordX}
+    cordY={cordY}
+    showMenu={showMenu}
+    />
       <div className="scanBox"></div>
       <div className="header-bar">
         <Score />
         <Header />
-        <Objectives pokemon={pokemon} level={level}/>
+        <Objectives pokemon={pokemon} level={level}
+        Celebi={Celebi} Chansey={Chansey} Charmeleon={Charmeleon} Ditto={Ditto} Jumpluff={Jumpluff} Ledyba={Ledyba} Metapod={Metapod} Pikachu={Pikachu} Sableye={Sableye}
+/>
           <button className="levelButton" onClick={levelChange}>Next Set</button>
       </div>
       <div className="modal-obj" onClick={handleMouseClick}>
-        <SelectionMenu
-    pokemon={pokemon}
-    localX={localX} localY={localY} cordX={cordX} cordY={cordY}
-    showMenu={showMenu}
-    />
+        
         <Modal pokemon={pokemon} />
       </div>
       <div className="captured">
         <div>Captured</div>
-        <CapturedMons capturedMons={capturedMons}/>
+        <CapturedMons capturedMons={capturedMons} Celebi={Celebi} Chansey={Chansey} Charmeleon={Charmeleon} Ditto={Ditto} Jumpluff={Jumpluff} Ledyba={Ledyba} Metapod={Metapod} Pikachu={Pikachu} Sableye={Sableye}/>
       </div>
     </div>
+    
   );
 }
 

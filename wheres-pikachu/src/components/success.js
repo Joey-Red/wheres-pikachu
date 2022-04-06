@@ -1,5 +1,5 @@
 import pokeball from './img/pokeball.png';
-let Success = (props) => {
+let success = (props) => {
   let scanBox = document.querySelector('.scanBox');
   scanBox.style.backgroundImage=`url(${pokeball})`;
   scanBox.style.border="solid black 1px";
@@ -11,4 +11,4 @@ let Success = (props) => {
   return props
 }
 
-export default Success
+export default success

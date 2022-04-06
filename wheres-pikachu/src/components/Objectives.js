@@ -1,14 +1,3 @@
-import React from 'react';
-import Celebi from '../pokes/celebi.png';
-import Chansey from '../pokes/chansey.png';
-import Charmeleon from '../pokes/charmeleon.png';
-import Ditto from '../pokes/ditto.png';
-import Jumpluff from '../pokes/jumpluff.png';
-import Ledyba from '../pokes/ledyba.png';
-import Metapod from '../pokes/metapod.png';
-import Pikachu from '../pokes/pikachu.png';
-import Sableye from '../pokes/sableye.png';
-
 function Objectives(props) {
   let { pokemon: { pokeOne, pokeTwo, pokeThree } } = props
   let { level } = props
@@ -16,18 +5,18 @@ function Objectives(props) {
     let overlay = document.querySelector('#objList');
       overlay.classList.toggle('hiddenObjs');
   }
-    let picOne = Pikachu;
-    let picTwo = Celebi;
-    let picThree = Chansey;
+    let picOne = props.Pikachu;
+    let picTwo = props.Celebi;
+    let picThree = props.Chansey;
   if (level === 2) {
-    picOne = Ditto;
-    picTwo = Metapod;
-    picThree = Charmeleon;
+    picOne = props.Ditto;
+    picTwo = props.Metapod;
+    picThree = props.Charmeleon;
   }
   if (level === 3) {
-    picOne = Sableye;
-    picTwo = Ledyba;
-    picThree = Jumpluff;
+    picOne = props.Sableye;
+    picTwo = props.Ledyba;
+    picThree = props.Jumpluff;
   }
   return (
     <div className='obj-background'>

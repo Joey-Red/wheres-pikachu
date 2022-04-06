@@ -1,23 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 function CapturedMons(props) {
-  // useEffect(() => {
-  // }, [props])
-  // if (props = {}){
-  //   return null
-  // } else {
-  let pokemon = props.capturedMons;
-  console.log(pokemon)
-  // useEffect(() => {
-  // console.log(props)
-  // }, [pokemon]);
-  let pokeList = pokemon.map((pokes) => 
-  <li>{pokes}</li>
-  );
+  let { capturedMons } = props
+  console.log(capturedMons)
+  let picture = {};
+  // if (capturedMons.includes('Pikachu')){
+  //   picture = props.Pikachu
+  // } else if (capturedMons.includes('Celebi')){
+  //   picture = props.Celebi
+  // }
   return (
     <>
-      <ul>{pokeList}</ul>
+      <p>{capturedMons}</p>
+      <img src={picture} alt='caught' />
+      {/* <img src={props.Pikachu} alt='why' /> */}
     </>
   )
-  }
-// }
+}
 export default CapturedMons;

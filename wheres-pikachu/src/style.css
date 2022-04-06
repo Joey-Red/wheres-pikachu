@@ -14,7 +14,18 @@ body {
   color: white;
   text-shadow: 2px 2px black;
 }
-
+.subMenu {
+  width: 170px;
+  margin: 0 auto;
+  padding-left: 0;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 12px;
+  width: fit-content;
+  color: yellow;
+  padding: 4px;
+  border: 4px solid red;
+  z-index: 999;
+}
 .modal {
   display: flex;
   position: relative;
@@ -56,6 +67,12 @@ img {
 .levelButton {
   margin-top: 2%;
 }
+.selectMenu {
+  z-index: 999;
+}
+/* .lineThrough {
+  text-decoration: line-through;
+} */
 .closeObjectives {
   border-radius: 4px;
   background-color: yellow;
@@ -130,17 +147,6 @@ img {
   align-items: center;
   margin: 0 auto;
   pointer-events: none;
-}
-.subMenu {
-  width: 170px;
-  margin: 0 auto;
-  padding-left: 0;
-  background: rgba(0, 0, 0, 0.9);
-  border-radius: 12px;
-  width: fit-content;
-  color: yellow;
-  padding: 4px;
-  border: 4px solid red;
 }
 .buttonList {
   display: grid;
