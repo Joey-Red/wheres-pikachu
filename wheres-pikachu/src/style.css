@@ -73,6 +73,19 @@ img {
 /* .lineThrough {
   text-decoration: line-through;
 } */
+.capContainer {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+}
+.capContainer img {
+  height: 150px;
+  width: 150px;
+}
+.capChild {
+  border-radius: 12px;
+  border: solid black 10px;
+}
 .closeObjectives {
   border-radius: 4px;
   background-color: yellow;

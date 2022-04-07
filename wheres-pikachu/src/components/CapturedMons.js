@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 function CapturedMons(props) {
   let { capturedMons } = props
   console.log(capturedMons)
-  let picture = {};
-  // if (capturedMons.includes('Pikachu')){
-  //   picture = props.Pikachu
-  // } else if (capturedMons.includes('Celebi')){
-  //   picture = props.Celebi
-  // }
+  let outputArray = [props.capturedMons];
+  if (props.capturedMons.length === 0){
+    return (
+      <div>Nothing yet</div>
+    )
+  }
+  if (capturedMons.includes('Pikachu')){
+    outputArray.push(props.Pikachu);
+  } else if (capturedMons.includes('Celebi')){
+    outputArray.push(props.Celebi);
+  } else if (capturedMons.includes('Chansey')){
+    outputArray.push(props.Chansey);
+  }
+  const listItems = outputArray.map((mon) =>
+  <div className='capChild'>{capturedMons}<img src={`${mon}`} alt='' /></div>);
   return (
     <>
-      <p>{capturedMons}</p>
-      <img src={picture} alt='caught' />
-      {/* <img src={props.Pikachu} alt='why' /> */}
+      <div className='capContainer'>{listItems}</div>
     </>
   )
 }
