@@ -70,13 +70,16 @@ img {
 .selectMenu {
   z-index: 999;
 }
-/* .lineThrough {
-  text-decoration: line-through;
-} */
+.empty {
+  text-align: center;
+}
 .capContainer {
-  display: flex;
   margin: 0 auto;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 12px;
+  gap: 4px;
+  text-align: center;
 }
 .capContainer img {
   height: 150px;
@@ -84,7 +87,19 @@ img {
 }
 .capChild {
   border-radius: 12px;
-  border: solid black 10px;
+  border: solid black 2px;
+  color: yellow;
+  background: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+}
+.capHeader {
+  font-size: 1.4rem;
+  border-bottom: solid black 2px;
+  border-top: solid black 2px;
+  background-color: rgba(255, 255, 255, 0.4);
+  text-align: center;
 }
 .closeObjectives {
   border-radius: 4px;
@@ -170,10 +185,4 @@ img {
   border: none;
   border-radius: 6px;
   background: yellow;
-}
-.foundPokes {
-  display: none;
-}
-#foundPokesStyles {
-  background-color: red;
 }

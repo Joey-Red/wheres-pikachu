@@ -24,15 +24,16 @@ function App() {
   let [localY, setLocalY] = useState([0]);
   let [level, setLevel] = useState(1);
   let [showMenu, setShowMenu] = useState(false);
-  let [capturedMons, setCapturedMons] = useState([])
+  let [capturedMons, setCapturedMons] = useState([]);
+  let [points, setPoints] = useState(0);
   function SelectionMenu(props) {
   const {cordX, cordY, localX, localY} = props;
   const {pokeOne, pokeTwo, pokeThree} = props.pokemon;
   const {height, width, showMenu} = props;
   let closeMenu = () => {
-    let buttonMenu = document.querySelector('#subMenuID')
-    buttonMenu.style.visibility="hidden";
+  setShowMenu(false);
   }
+  
   return (
     <div className="selectMenu"
     onClick={closeMenu}
@@ -48,8 +49,7 @@ function App() {
         <div className="buttonList">
           <button onClick={() => communicate(localX, localY, pokeOne, height, width)}>{pokeOne}</button>
           <button onClick={() => communicate(localX, localY, pokeTwo, height, width)}>{pokeTwo}</button>
-          <button onClick={() =>
-            communicate(localX, localY, pokeThree, height, width)}>{pokeThree}</button>
+          <button onClick={() => communicate(localX, localY, pokeThree, height, width)}>{pokeThree}</button>
         </div>
       </div>
     </div>
@@ -89,48 +89,57 @@ function App() {
   mutatedY >= 80 && mutatedY <= 88){
     success(pokemon);
     setCapturedMons(capturedMons + pokemon);
+    setPoints(points + 100);
   } else if (pokemon === 'Celebi' &&
   mutatedX >= 26 && mutatedX <= 30 && 
   mutatedY >= 38 && mutatedY <= 44){
     success(pokemon);
     setCapturedMons(capturedMons + pokemon);
+    setPoints(points + 100);
   } else if (pokemon === 'Chansey' &&
   mutatedX >= 76 && mutatedX <= 81 && 
   mutatedY >= 40  && mutatedY <= 48){
     success(pokemon);
     setCapturedMons(capturedMons + pokemon);
+    setPoints(points + 100);
   }  //Set Two
   else if (pokemon === 'Ditto' &&
   mutatedX >= 0.5 && mutatedX <= 6 && 
   mutatedY >= 59  && mutatedY <= 62){
     success(pokemon);
     setCapturedMons(capturedMons + pokemon);
+    setPoints(points + 100);
   } else if (pokemon === 'Metapod' &&
   mutatedX >= 0.5 && mutatedX <= 3 && 
   mutatedY >= 60  && mutatedY <= 64){
     success(pokemon);
     setCapturedMons(capturedMons + pokemon);
+    setPoints(points + 100);
   } else if (pokemon === 'Charmeleon' &&
   mutatedX >= 84 && mutatedX <= 87 && 
   mutatedY >= 46  && mutatedY <= 52.5){
     success(pokemon);
     setCapturedMons(capturedMons + pokemon);
+    setPoints(points + 100);
   } //Set Three
   else if (pokemon === 'Sableye' &&
   mutatedX >= 12 && mutatedX <= 14.5 && 
   mutatedY >= 61.5  && mutatedY <= 66){
     success(pokemon);
     setCapturedMons(capturedMons + pokemon);
+    setPoints(points + 100);
   } else if (pokemon === 'Ledyba' &&
   mutatedX >= 14.5 && mutatedX <= 17.5 && 
   mutatedY >= 0.75  && mutatedY <= 5.5){
     success(pokemon);
     setCapturedMons(capturedMons + pokemon);
+    setPoints(points + 100);
   } else if (pokemon === 'Jumpluff' &&
   mutatedX >= 50 && mutatedX <= 53 && 
   mutatedY >= 85  && mutatedY <= 89){
     success(pokemon);
     setCapturedMons(capturedMons + pokemon);
+    setPoints(points + 100);
   } else {
     failure()
   }
@@ -194,7 +203,7 @@ function App() {
     />
       <div className="scanBox"></div>
       <div className="header-bar">
-        <Score />
+        <Score points={points}/>
         <Header />
         <Objectives pokemon={pokemon} level={level}
         Celebi={Celebi} Chansey={Chansey} Charmeleon={Charmeleon} Ditto={Ditto} Jumpluff={Jumpluff} Ledyba={Ledyba} Metapod={Metapod} Pikachu={Pikachu} Sableye={Sableye}
@@ -206,7 +215,7 @@ function App() {
         <Modal pokemon={pokemon} />
       </div>
       <div className="captured">
-        <div>Captured</div>
+        <div className="capHeader">Found Pokemon</div>
         <CapturedMons capturedMons={capturedMons} Celebi={Celebi} Chansey={Chansey} Charmeleon={Charmeleon} Ditto={Ditto} Jumpluff={Jumpluff} Ledyba={Ledyba} Metapod={Metapod} Pikachu={Pikachu} Sableye={Sableye}/>
       </div>
     </div>
