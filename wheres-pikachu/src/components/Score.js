@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from 'react';
 function Score(points) {
-  let [score, setScore] = useState(1000);
-  useEffect(() => {
+  let [score, setScore] = useState(0);
   let scoreModifier = points;
-  let key = Object.keys(scoreModifier)
-  // console.log(scoreModifier[key])
-  setScore(score + scoreModifier[key])
-  }, [])
-  // dependancy array?
-  let scoreChanger = () => {
-    if (score >= 0){
-      setScore(score - 1)
-    }
-  }
-  (() => {
-    setTimeout(scoreChanger, 1000)
-  })()
+  let key = Object.keys(scoreModifier);
+  let totalScore = scoreModifier[key] + score;
+  useEffect(() => {
+  setScore(score + scoreModifier[key]);
+  
+  }, [score])
+  // let scoreChanger = () => {
+  //     // setScore(score - 1)
+  //     setScore(currScore => currScore - 1)
+  //     console.log('SCORECHANGER')
+  // }
+  // (() => {
+  //   setTimeout(scoreChanger, 1000)
+  //   // console.log('TIMEOUT')
+  // })()
+  // // console.log(score)
   return (
-    <div className='score-background'>Score: {score}</div>
+    <div className='score-background'>Score: {totalScore}</div>
   )
 }
 
