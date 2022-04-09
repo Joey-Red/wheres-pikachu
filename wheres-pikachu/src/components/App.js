@@ -24,7 +24,7 @@ function App() {
   let [localY, setLocalY] = useState([0]);
   let [level, setLevel] = useState(1);
   let [showMenu, setShowMenu] = useState(false);
-  let [capturedMons, setCapturedMons] = useState(['Pikachu', 'Celebi', 'Chansey', 'Ditto', 'Metapod', 'Charmeleon', 'Sableye', 'Ledyba', 'Jumpluff']);
+  let [capturedMons, setCapturedMons] = useState([]);
   let [points, setPoints] = useState(0);
   function SelectionMenu(props) {
   const {cordX, cordY, localX, localY} = props;
@@ -185,15 +185,25 @@ function App() {
       setLevel(level + 1);
     }
   }
+  // const winnerList = outputArray.map((mon, index) =>
+  // <div className='capChild' key={index}>{nameArray[index]}<img src={`${mon}`} alt='' /></div>);
   if (capturedMons.includes('Pikachu', 'Celebi', 'Chansey', 'Ditto', 'Metapod', 'Charmeleon', 'Sableye', 'Ledyba', 'Jumpluff')){
     return (
+      <>
       <div className="winnerContainer">
         <div className='winner-div'>You caught em' all!
-        <div>
+        <div className="inputContainer">
         Enter Name: <input type="text" className="nameInput" id="nameInput"/>
         </div>
       </div>
+      <div className="prevWinners">
+        <p>Previous Winners:</p>
+          <ul>
+            <li>Test</li>
+          </ul>
+        </div>
   </div>
+  </>
     )
   }
   let scanBox = document.querySelector('.scanBox');
