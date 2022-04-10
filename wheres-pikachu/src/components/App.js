@@ -187,22 +187,23 @@ function App() {
   }
   // const winnerList = outputArray.map((mon, index) =>
   // <div className='capChild' key={index}>{nameArray[index]}<img src={`${mon}`} alt='' /></div>);
-  if (capturedMons.includes('Pikachu', 'Celebi', 'Chansey', 'Ditto', 'Metapod', 'Charmeleon', 'Sableye', 'Ledyba', 'Jumpluff')){
+  if (capturedMons.includes('Pikachu' && 'Celebi' && 'Chansey' && 'Ditto' && 'Metapod' && 'Charmeleon' && 'Sableye' && 'Ledyba' && 'Jumpluff')){
     return (
       <>
       <div className="winnerContainer">
         <div className='winner-div'>You caught em' all!
-        <div className="inputContainer">
-        Enter Name: <input type="text" className="nameInput" id="nameInput"/>
+          <div className="inputContainer">
+            Enter Name: <input type="text" className="nameInput" id="nameInput"/>
+          </div>
+          <div className="prevWinners">
+            <p>Previous Winners:</p>
+            <ul>
+              <li>Test</li>
+              <li>What the heck</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div className="prevWinners">
-        <p>Previous Winners:</p>
-          <ul>
-            <li>Test</li>
-          </ul>
-        </div>
-  </div>
   </>
     )
   }
