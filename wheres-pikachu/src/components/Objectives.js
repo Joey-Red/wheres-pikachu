@@ -7,7 +7,7 @@ function Objectives(props) {
   }
     let picOne = props.Pikachu;
     let picTwo = props.Celebi;
-    let picThree = props.Chansey;
+    let picThree = props.Blissey;
   if (level === 2) {
     picOne = props.Ditto;
     picTwo = props.Metapod;

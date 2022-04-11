@@ -8,16 +8,6 @@ function Score(points) {
   setScore(score + scoreModifier[key]);
   
   }, [score])
-  // let scoreChanger = () => {
-  //     // setScore(score - 1)
-  //     setScore(currScore => currScore - 1)
-  //     console.log('SCORECHANGER')
-  // }
-  // (() => {
-  //   setTimeout(scoreChanger, 1000)
-  //   // console.log('TIMEOUT')
-  // })()
-  // // console.log(score)
   return (
     <div className='score-background'>Score: {totalScore}</div>
   )

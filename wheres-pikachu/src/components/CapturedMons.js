@@ -16,9 +16,9 @@ function CapturedMons(props) {
     outputArray.push(props.Celebi);
     nameArray.push('Celebi');
   }
-  if (capturedMons.includes('Chansey')){
-    outputArray.push(props.Chansey);
-    nameArray.push('Chansey');
+  if (capturedMons.includes('Blissey')){
+    outputArray.push(props.Blissey);
+    nameArray.push('Blissey');
   }
   if (capturedMons.includes('Ditto')){
     outputArray.push(props.Ditto);

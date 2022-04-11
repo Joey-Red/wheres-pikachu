@@ -187,16 +187,12 @@ img {
   background: yellow;
 }
 .winnerContainer {
-  background: url("./components/img/pokemonHappy.jpg") no-repeat center center
-    fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 100vh;
-  width: 100vw;
+  background: url("./components/img/pokemonHappy.jpg") no-repeat center center fixed;
   justify-content: space-around;
   display: flex;
+  min-height: 100vh;
+  min-width: 100vw;
+  
 }
 .winner-div {
   background-color: rgba(0, 0, 0, 0.7);
@@ -221,6 +217,9 @@ img {
   justify-items: center;
   justify-content: center;
   align-items: center;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
 }
 .inputContainer {
   text-align: center;
@@ -228,4 +227,32 @@ img {
 .prevWinners ul {
   list-style: none;
   padding-left: 0;
+}
+.cntr{
+  text-align: center;
+}
+.displayName{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+}
+.winImg {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin: 0 auto;
+  margin-right: 10px;
+}
+.createButton {
+  border: none;
+  border-radius: 12px;;
+  padding: 12px;
+  margin-top: 20px;
+}
+.goodBye {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999999;
 }
