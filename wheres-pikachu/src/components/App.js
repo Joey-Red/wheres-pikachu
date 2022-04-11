@@ -294,7 +294,7 @@ function App() {
     }
   };
 
-  if (points === 1000) {
+  if (points === 9000) {
     return (
       <>
         <div className="winnerContainer">
