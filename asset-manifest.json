@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/wheres-pikachu/static/css/main.c37d0454.css",
+    "main.js": "/wheres-pikachu/static/js/main.9434e6a7.js",
+    "static/media/PokemonPic.png": "/wheres-pikachu/static/media/PokemonPic.12a7a0c043675d42b432.png",
+    "static/media/pokemonHappy.jpg": "/wheres-pikachu/static/media/pokemonHappy.d22a90888eab02b3e5ae.jpg",
+    "static/media/blissey.png": "/wheres-pikachu/static/media/blissey.936f0f6d8a49c6b8e530.png",
+    "static/media/ledyba.png": "/wheres-pikachu/static/media/ledyba.7b546ae55312a87c9ce8.png",
+    "static/media/charmeleon.png": "/wheres-pikachu/static/media/charmeleon.79b88dceb3693518b95d.png",
+    "static/media/celebi.png": "/wheres-pikachu/static/media/celebi.d8eff36eba008eb74f6a.png",
+    "static/media/jumpluff.png": "/wheres-pikachu/static/media/jumpluff.720386f113f00e0bffd2.png",
+    "static/media/pikachu.png": "/wheres-pikachu/static/media/pikachu.3d53a3ad2fe90533d27b.png",
+    "static/media/sableye.png": "/wheres-pikachu/static/media/sableye.73834cf324d2064ae6e2.png",
+    "static/media/metapod.png": "/wheres-pikachu/static/media/metapod.e2a6234dc10d1baa6082.png",
+    "static/media/ditto.png": "/wheres-pikachu/static/media/ditto.175299aa29a826ce39c0.png",
+    "static/media/masterball.jpg": "/wheres-pikachu/static/media/masterball.6ddb637734c20cf83fa6.jpg",
+    "static/media/pokeball.png": "/wheres-pikachu/static/media/pokeball.b9790e8407fd7bb6a3bd.png",
+    "index.html": "/wheres-pikachu/index.html",
+    "main.c37d0454.css.map": "/wheres-pikachu/static/css/main.c37d0454.css.map",
+    "main.9434e6a7.js.map": "/wheres-pikachu/static/js/main.9434e6a7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c37d0454.css",
+    "static/js/main.9434e6a7.js"
+  ]
+}
