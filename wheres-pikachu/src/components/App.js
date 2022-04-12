@@ -19,7 +19,7 @@ import Ledyba from "../pokes/ledyba.png";
 import Metapod from "../pokes/metapod.png";
 import Pikachu from "../pokes/pikachu.png";
 import Sableye from "../pokes/sableye.png";
-import masterball from './img/masterball.jpg'
+import masterball from "./img/masterball.jpg";
 
 function App() {
   let [cordX, setCordX] = useState([0]);
@@ -34,19 +34,15 @@ function App() {
   const [newName, setNewName] = useState("");
   const usersCollectionRef = collection(db, "users");
   const createUser = async () => {
-    let button = document.querySelector('.createButton');
+    let button = document.querySelector(".createButton");
     button.remove();
-    if (newName === ''){
-    await addDoc(usersCollectionRef, { name: 'Anon' });
+    if (newName === "") {
+      await addDoc(usersCollectionRef, { name: "Anon" });
+    alert(`Thanks for playing Anon! You've been added to the leaderboard.`)
     } else {
-    await addDoc(usersCollectionRef, { name: newName });
+      await addDoc(usersCollectionRef, { name: newName });
+    alert(`Thanks for playing ${newName}! You've been added to the leaderboard.`)
     }
-    return ReactDOM.createPortal(
-      <>
-          <div className="goodBye">Thanks for playing {newName}!</div>
-      </>,
-      document.getElementByClassName('displayName')
-    )
   };
   useEffect(() => {
     const getUsers = async () => {
@@ -56,20 +52,31 @@ function App() {
     getUsers();
   }, []);
   useEffect(() => {
-    if (capturedMons.includes('Pikachu') && capturedMons.includes('Celebi') && capturedMons.includes('Blissey')){
-      setLevel(2)
+    if (
+      capturedMons.includes("Pikachu") &&
+      capturedMons.includes("Celebi") &&
+      capturedMons.includes("Blissey")
+    ) {
+      setLevel(2);
     }
-    if (capturedMons.includes('Pikachu') && capturedMons.includes('Celebi') && capturedMons.includes('Blissey')&& capturedMons.includes('Ditto')&& capturedMons.includes('Metapod')&& capturedMons.includes('Charmeleon')){
+    if (
+      capturedMons.includes("Pikachu") &&
+      capturedMons.includes("Celebi") &&
+      capturedMons.includes("Blissey") &&
+      capturedMons.includes("Ditto") &&
+      capturedMons.includes("Metapod") &&
+      capturedMons.includes("Charmeleon")
+    ) {
       setLevel(3);
     }
-  }, [capturedMons])
+  }, [capturedMons]);
   let overlay = document.querySelector("#objList");
   useEffect(() => {
-    if (level !== 1){
-    overlay.classList.toggle("hiddenObjs");
+    if (level !== 1) {
+      overlay.classList.toggle("hiddenObjs");
     }
-  }, [level])
-  
+  }, [level]);
+
   function SelectionMenu(props) {
     const { cordX, cordY, localX, localY } = props;
     const { pokeOne, pokeTwo, pokeThree } = props.pokemon;
@@ -300,37 +307,39 @@ function App() {
         <div className="winnerContainer">
           <div className="winner-div">
             <div className="prevWinners">
-                <h3>You caught em' all!</h3>
-                <div className="inputContainer">
-                  Enter Name{" "}
-                  <input
-                    className="nameInput"
-                    id="nameInput"
-                    placeholder="Nickname (4 Characters)"
-                    maxLength={4}
-                    required
-                    onChange={(event) => {
-                      setNewName(event.target.value);
-                    }}
-                  />
-                  <button className="createButton" onClick={createUser}>Submit</button>
-                </div>
-                <p className="cntr">Previous Winners</p>
-                {users.map((user, index) => {
-                  return (
-                    <div className="displayName"  key={index}>
-                      <img src={masterball} className="winImg" alt="masterball"/>
-                      <p>{user.name}</p>
-                    </div>
-                  );
-                })}
+              <h3>You caught em' all!</h3>
+              <div className="inputContainer">
+                Enter Name{" "}
+                <input
+                  className="nameInput"
+                  id="nameInput"
+                  placeholder="Nickname (4 Characters)"
+                  maxLength={4}
+                  required
+                  onChange={(event) => {
+                    setNewName(event.target.value);
+                  }}
+                />
+                <button className="createButton" onClick={createUser}>
+                  Submit
+                </button>
+              </div>
+              <p className="cntr">Previous Winners</p>
+              {users.map((user, index) => {
+                return (
+                  <div className="displayName" key={index}>
+                    <img src={masterball} className="winImg" alt="masterball" />
+                    <p>{user.name}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
       </>
     );
   }
-  
+
   let scanBox = document.querySelector(".scanBox");
   const moveCursor = (e) => {
     let img = document.querySelector("#wwPic");
